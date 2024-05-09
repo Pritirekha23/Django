@@ -7,7 +7,7 @@
     ``` django-admin startproject NewsProject ```
 3. Enter to the project folder now
  ``` cd NewsProject```
-4. Create the first application named as EducationApp, CricektApp, PoliticsApp .
+4. Create the applications named as EducationApp, CricektApp, PoliticsApp .
 - First app: ``` python manage.py startapp EducationApp ```
 - Second app: ``` python manage.py startapp CricektApp ```
 - Third app: ``` python manage.py startapp  PoliticsApp ```
@@ -78,7 +78,7 @@ from CricketApp import views as v2
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('education/',views.education_view),
-     path('cricket/',v2.cricket_view)
+    path('cricket/',v2.cricket_view)
 ]
 ```
 
@@ -124,3 +124,4 @@ py manage.py runserver
 ## request 3 :  http://127.0.0.1:8000/politics/
 ![alt text](outputimage/p003iamge/politics.png)
 
+!NOTE: To stop the server type ctrl+C
