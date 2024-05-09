@@ -12,7 +12,7 @@
 - Second app: ``` python manage.py startapp CricektApp ```
 - Third app: ``` python manage.py startapp  PoliticsApp ```
 
-5. Install all 3 apps inside setting.py file of main project.(Django dont know about our application, so we have to installed it inside settings.py file.
+5. Install all 3 apps inside settings.py file of main project.(Django dont know about our application, so we have to installed it inside settings.py file.
 
 )
 > NewsProject/NewsProject/settings.py
@@ -77,7 +77,7 @@ from CricketApp import views as v2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('education/',views.education_view),
+    path('education/',v1.education_view),
     path('cricket/',v2.cricket_view)
 ]
 ```
@@ -110,6 +110,7 @@ urlpatterns = [
 ]
 
 ```
+> NOTE: If we will import multiple modules with the same name, Python will only keep the last one. By using alias names, we can import multiple modules with the same name without causing conflicts. SO here v1,v2,and v3 are alias name of EducationApp, CricektApp and PoliticsApp.
 12. Runserver and send Http Request
 ```
 py manage.py runserver
