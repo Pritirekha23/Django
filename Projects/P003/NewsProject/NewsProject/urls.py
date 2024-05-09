@@ -25,6 +25,4 @@ urlpatterns = [
     path('education/',v1.education_view),
     path('cricket/',v2.cricket_view),
     path('politics/',v3.politics_view)
-
-
 ]
