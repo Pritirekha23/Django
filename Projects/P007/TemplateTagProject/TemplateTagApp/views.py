@@ -5,4 +5,4 @@ def time_view(request):
     current_date_time=datetime.now()
     time=current_date_time.strftime('%H:%M:%S')
     d={'time':time}
-    return render(request,'TemplateTagApp/time.html',d)
+    return render(request,'TemplateTagApp/time.html/',d)
