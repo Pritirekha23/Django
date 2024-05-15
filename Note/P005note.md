@@ -133,3 +133,11 @@ urlpatterns = [
 ]
 
 ``` 
+
+15.Run the server and send HttpRequest
+```
+http://127.0.0.1:8000/EduApp/edu/
+http://127.0.0.1:8000/PoliApp/poli/
+http://127.0.0.1:8000/CriApp/cri/
+
+```
