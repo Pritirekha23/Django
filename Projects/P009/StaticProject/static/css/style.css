@@ -1,0 +1,16 @@
+body{
+    margin:0;
+    padding:0;
+}
+h1{
+    color:crimson;
+    background-color:lightpink;
+}
+.card {
+  width: 18rem;
+  margin: 1%;
+}
+img {
+  width: 40%;
+  height: auto;
+}
