@@ -2,14 +2,14 @@
 > DATE 17/05/2024
 
 - Sometime we required images, videos, audios, css, javascript at that time we can go for static file.
-- Django bydeafult does not provide any support for static files.
+- Django by deafult does not provide any support for static files.
 - We have to create and configure manually.
 
 ## How to create and configure static file
 ----------------------------------------
 -> Create a folder named as 'static' in main project level / just like 'template' folder.
 -> Inside that ststic folder create sub folders like css, javascript, image etc.
--> Django does not aware about out static folder so we have to configure inside settings.py file.
+-> Django does not aware about our static folder so we have to configure inside settings.py file.
 -> In .html file first load the static file.
 
 # P007
@@ -35,7 +35,7 @@ STATIC_URL = 'static/'
 STATIC_DIR=BASE_DIR/'static'
 STATICFILES_DIRS=[STATIC_DIR,]
 ```
-- Step 5 : Create templates foldre in main project level and configure it inside settings.py file.
+- Step 5 : Create templates folder in main project level and configure it inside settings.py file.
 >StaticProject/StaticProject/settings.py
 ```
  'DIRS': [BASE_DIR,'templates'],
