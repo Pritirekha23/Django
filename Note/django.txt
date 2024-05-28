@@ -1,0 +1,592 @@
+
+Chapter 1 : Introduction to django framework
+--------------------------------------------
+
+Day : 2 
+Date : 07/05/2024
+******************
+
+P001 : Create a django project and application to display good morning message to the user.
+
+Required Steps 
+---------------
+Step 1 : Create a folder named as 'Projects' inside 'Django' folder 
+Step 2 : Create a new folder named as 'P001' inside 'Projects' folder.
+Step 3 : Go to 'P001' and open with VS CODE.
+Step 4 : In vs code open terminal (ctrl + j)
+Step 5 : Create django project :  type this command in terminal (django-admin 'startproject project_name')
+
+Note : after successfull execution of 'django-admin startproject MsgProject' command then django will automatically create a folder named as 'MsgProject' inside this 'MsgProject' folder again it created 'MsgProject' sub folder and manage.py file. Inside the 'MsgProject' subfolder again it created 5 files names as 
+__init__.py, asgi.py, settings.py, urls.py and wsgi.py.  
+
+Step 6 : Enter into the project : type ( cd project_name)
+Step 7 : Create django application. type (py manage.py startapp application_name')
+
+Note : After execution of py manage.py startapp application_name command then django create a new folder named as 'MsgApp' inside main Project folder. Inisde the MsgApp foledr , django creates 1 folder and 6 files.
+The folder name is migrations and 6 files are __init__.py, admin.py, app.py, models.py, views.py, test.py.  
+
+
+
+Day 3
+Date : 09.05.2024
+********************************
+P002 : Create a project, inside that project create an application to display server time.
+
+All steps:
+----------
+Step 1 : create a folder P002 
+Step 2 : create django project (django-admin startproject projectname)
+Step 3 : enter into django project (cd projectname)
+Step 4 : create an application( py manage.py startapp app_name)
+Step 5 : Django dont know about our application, so we have to installed it inside settings.py file.
+
+TimeProject/TimeProject/settings.py
+------------------------------------
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'TimeApp',  #add this application
+]
+
+Step 6 : Configure project level url pattern
+
+TimeProject/TimeProject/urls.py
+-------------------------------
+from django.contrib import admin
+from django.urls import path
+from TimeApp import views
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('time/',views.get_time)
+]
+
+
+Step 6 : Define the view function inside views.py
+
+TimeProject/TimeApp/views.py
+----------------------------
+from django.shortcuts import render,HttpResponse
+from datetime import datetime
+# Create your views here.
+def get_time(request):
+    now = datetime.now()
+    return HttpResponse(now)
+
+Step 7 : Runserver (type : py manage.py runserver)
+Step 8 : Send HTTP request (open broswer and type "http://127.0.0.1:8000/time/" in url bar)
+Note :: Then this HTTP request will recive by Django server and django server will validate this HTTP request through project level url, then the corresponding view function will execute and it will return an HttpResponse() object to client.
+
+*************************
+P003: Crate a django project, inside this project create 3 application named as EducationApp, CricektApp, PoliticsApp to get all the information about this fields.
+
+All setps 
+------------
+Step 1 : create folder named as P003
+Step 2 : Create django project
+Step 3 : Enter into django project 
+Step 4 : Create the first application named as EducationApp, next second app and third app.
+Step 5 : Installed all 3 applications inside settings.py file
+
+NewsProject/NewsProject/settings.py
+------------------------------------
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'EducationApp',
+    'CricketApp',
+    'PoliticsApp',
+]
+
+Step 6 : Define view function for EducationApp
+
+NewsProject/EducationApp/views.py
+-----------------------------------
+
+from django.shortcuts import render,HttpResponse
+
+# Create your views here.
+def education_view(request):
+    return HttpResponse('<h1>WBCHSE WB HS 12th Result 2024 Live: The West Bengal Council of Higher Secondary Education (WBCHSE) has announced the results for Class 12th or HS final exam. The result was declared through a press conference and students can check their scores on wbresults.nic.in and wbchse.wb.gov.in by using their board exam roll code and number.</h1>')
+
+Step 7 : Configure url pattern for EducationApp
+
+NewsProject/NewsProject/urls.py
+-------------------------------
+from django.contrib import admin
+from django.urls import path
+from EducationApp import views
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('education/',views.education_view)
+]
+
+
+
+Step 8 : Define view function for CricektApp
+
+NewsProject/CricektApp/views.py
+----------------------------------
+from django.shortcuts import render,HttpResponse
+
+# Create your views here.
+def cricket_news(request):
+    return HttpResponse('<h1>SRH vs LSG Highlights: Sunrisers Hyderabad hunt down 166 in just 9.4 overs to take third spot. Mumbai eliminated</h1>')
+
+
+Step 9 : Configure url pattern for CricketApp
+----------------------------------------------
+NewsProject/NewsProject/urls.py
+-------------------------------
+
+from django.contrib import admin
+from django.urls import path
+from EducationApp import views as v1
+from CricketApp import views as v2
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('education/',v1.education_view),
+    path('cricket/',v2.cricket_view)
+]
+
+
+
+Step 10 : Define view function for PoliticsApp
+
+NewsProject/PoliticsApp/views.py
+-------------------------------
+from django.shortcuts import render,HttpResponse
+
+# Create your views here.
+def politics_views(request):
+    return HttpResponse('<h2>Decode Politics: Why BJP is still confident in Haryana, and Congress may not move in for the kill yet</h2>')
+
+
+Step 11 : Configure url pattern for PoliticsApp
+NewsProject/NewsProject/urls.py
+-------------------------------
+
+from django.contrib import admin
+from django.urls import path
+from EducationApp import views as v1
+from CricketApp import views as v2
+from PoliticsApp import views as v3 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('education/',v1.education_view),
+    path('cricket/',v2.cricket_view),
+    path('politics/',v3.politics_views),
+]
+
+
+Step 12 : Runserver and send HTTP request 
+
+request 1 :  http://127.0.0.1:8000/education/
+request 2 :  http://127.0.0.1:8000/cricket/
+request 3 :  http://127.0.0.1:8000/politics/
+
+Day 4
+Date 10.05.2024
+*********************************
+-> It is highly recommended to define url pattern in application level.
+-> Dont define all the url pattern for all application inisde poject level.
+-> For each application create seperate urls.py file and configure it.
+
+Note :: By defaut urls.py is avaaible in pooject level, it is not avaiable in application level so we have to create urls.py file manually.
+
+P004 :  Create a project and create application then configure the url in project and application level.
+
+All steps 
+------------------
+Step 1 : create a folder named as POO4 
+Step 2 : create django project 
+Step 3 : enter into the project 
+Step 4 : create application
+Step 5 : Installed the application 
+Step 6 : define view function 
+
+
+MsgProject/MsgApp/views.py
+---------------------------
+from django.shortcuts import render,HttpResponse
+
+# Create your views here.
+def wish_view(request):
+    return HttpResponse('Hello Good Morning!!! and have a nice day.') 
+
+
+
+Step 7 : create urls.py file in application level
+step 8 : configure project level url
+
+MsgProject/MsgProject/urls.py
+------------------------------
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('MsgApp/',include('MsgApp.urls'))
+]
+
+step 9 : configure application level url
+
+MsgProject/MsgApp/urls.py
+----------------------------
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('msg/', views.wish_view),
+]
+ 
+
+Step 10 : Run the server and send HTTP Request.
+
+http://127.0.0.1:8000/MsgApp/msg/
+
+
+Here MsgApp ----> application name 
+name ---> urls patten 
+
+
+Task : Convert P003 project into application level urls and do the dry run.
+
+
+***********************************
+Day 4
+Date : 11/05/2024
+***********************************
+Chapter - 2 : Templates in Django
+-------------------
+-> Previously we have seen both python and HTML code inside a single file that is views.py.
+-> It is highly recommended to separate HTML code from python code.
+-> By using django templates we can do the same.
+-> If we will separated html and python code then readbility will be improved.
+
+views.py -----> Business layer
+.html    -----> Presentation layer
+
+
+P005 : Create a djnago project, create a django application then create a simple html based webpage separatly from views.py.
+
+
+All steps:
+Step 1 : Create a folder named as P005
+Step 2 : Create a django project
+Step 3 : enter into the project 
+Step 4 : Create an application 
+Step 5 : Install the application 
+Step 6 : define view function 
+
+TemplateProject/TemplateApp/views.py
+-----------------------------------
+from django.shortcuts import render
+
+# Create your views here.
+def odisha_view(request):
+    return render(request,'TemplateApp/odisha.html')
+
+
+Step 7 : Create a folder in main project level named as "templates".
+Step 8 : Create a sub folder inside templates named same as application name(TemplateApp)
+Step 9 : Create a home.html file inside the sub folder.(templates/TemplateApp/home.html)
+Step 10 : As a developer we created templates folder but django does not aware about our templates folder. so we have to do a configurations inside settings.py file.
+
+
+TEMPLATES = [
+    {
+        ......
+        'DIRS': [BASE_DIR/'templates'],
+        ......
+]
+
+
+Step 11 : add html code inside home.html 
+
+
+TemplateProject/templates/TemplateApp/home.html
+-----------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>About Odisha</h1>
+    <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolores at debitis dolore, suscipit magnam quis nam officia tenetur ut, sit delectus sint distinctio nesciunt est veniam quod consequatur praesentium?</P>
+    <h2>Popular cities in odisha</h2>
+    <p>BBSR</p>
+    <p>Cuttack</p>
+    <p>Jajpur</p>
+
+    <h2>Popular temple in odisha</h2>
+    <p>Jagannath Temple</p>
+    <p>Lingaraj Temple</p>
+    <p>Konark Temple</p>
+</body>
+</html>
+
+
+
+Step 12 : Define url pattern in project level 
+
+TemplateProject/TemplateProject/urls.py
+----------------------------------------
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('TemplateApp/',include('TemplateApp.urls')),
+]
+
+
+Step 13 : Define url pattern in application level 
+
+TemplateProject/TemplateApp/urls.py
+----------------------------------------
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('odisha/', views.odisha_view),    
+]
+
+
+Step 14 : Runserver and send HTTP request 
+
+http://127.0.0.1:8000/TemplateApp/odisha/
+
+
+task : dry run of P005
+
+
+
+DAY 6
+DATE : 14/05/2024
+
+Template variables or template tags
+-----------------------------------
+views.py---->rendering---->template 
+
+Task :: Send some data from views.py file to template file so that data can be access inside template file.
+
+
+P006 :: Create django project and application to send current time from views.py to to template file.
+
+All steps 
+---------
+Step 1 : create a folder, create a project and create an application then install it 
+Step 2 : create a templates folder in main project level, configure inside seetings.py file 
+Step 3 : Inside views.py file write the logic to get current time 
+
+TemplateTagProject/TemplateTagApp/views.py
+------------------------------------------
+from django.shortcuts import render
+from datetime import datetime
+# Create your views here.
+
+def time_view(request):
+    current_date_time=datetime.now()
+    time=current_date_time.strftime('%H:%M:%S')
+    d={'time':time}
+    return render(request,'TemplateTagApp/home.html',d)
+
+Step 4 : access template variable data inside home.html
+
+TemplateTagProject/templates/TemplateTagApp/home.html
+-----------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Current time is : {{ time }}
+</body>
+</html>
+
+
+Step 5 : configure url pattern
+
+TemplateTagProject/TemplateTagProject/urls.py
+----------------------------------------------
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('TemplateTagApp/',include('TemplateTagApp.urls')),
+]
+
+
+Step 6 : Configure url pattern from application level 
+
+
+TemplateTagProject/TemplateTagApp/urls.py
+------------------------------------------
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('time/',views.time_view),
+]
+
+Step 7 : Run server and sent http request 
+
+http://127.0.0.1:8000/TemplateTagApp/time/
+
+
+What is context dict?
+Ans : Context dict is dict which is used to send data from views.py file to template file.
+
+What is template variable?
+Ans : Template variable is sused to print the dynamic value in html file 
+      Syntax :: {{ template_variable_name }} 
+
+
+
+Task : Dry Run of P006
+
+Task :: Create P007, 
+Problem Statement : Create django project and application to wish msg based on server time.
+
+4 to 11 ---> Good Morning 
+12 to 16 ---> Good Afternoon
+17 to 22 ----> Good Evening 
+other ---> good night  
+
+
+DAY 7
+DATE 17/05/2024
+****************
+Topic : Static files in Django 
+
+-> Sometime we required images, videos, audios, css, javascript at that time we can go for static file.
+-> Django bydeafult does not provide any support for static files.
+-> We have to create and configure manually.
+
+How to create and configure static file
+----------------------------------------
+-> Create a folder named as 'static' in main project level / just like 'template' folder.
+-> Inside that ststic folder create sub folders like css, javascript, image etc.
+-> Django does not aware about out static folder so we have to configure inside settings.py file.
+-> In .html file first load the static file.
+
+
+P007
+----
+Problem Statement : Add some image, css in the django project.
+
+All steps:
+
+Step 1 : Common steps
+Step 2 : Create a folder named as 'static' in main project level.
+Step 3 : Create sub folder inside static folder (like css, images)
+Step 4 : Configure static folder inside settings.py file.
+
+settings.py   
+------------
+STATIC_DIR=BASE_DIR/'static'
+STATICFILES_DIRS=[STATIC_DIR,]
+
+Step 5 : Create templates foldrer in main project level and configure it inside settings.py file.
+Step 6 : Define view function 
+
+views.py
+--------
+from django.shortcuts import render
+
+# Create your views here.
+def home_view(request):
+    return render(request,'StaticApp/home.html')
+
+Step 7 : Define project and application level url 
+
+urls.py ---> project level 
+-------
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('StaticApp/',include('StaticApp.urls')),
+]
+
+
+urls.py  ---> application level
+-------
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('home/', views.home_view),
+]
+
+ 
+Step 8 
+------
+Design webpage in home.html file 
+
+Note : First load the static file : {% load static %}
+Note : By using jinja synatax we can add the srcof an imagem, href of link tag. 
+
+
+
+home.html
+----------
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Jay Jagannath</h1>
+    <img src="{% static 'images/jagannath.jpg' %}" alt="loading fail">
+</body>
+</html>
+
+
+Step 9 :
+-------
+Run server and send HTTP request
+
+http://127.0.0.1:8000/StaticApp/home/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

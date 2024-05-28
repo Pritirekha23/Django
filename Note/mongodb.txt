@@ -1,0 +1,352 @@
+path setting :
+--------------
+C:\Program Files\MongoDB\Server\7.0\bin\
+
+open cmd : 
+---------
+check version : mongod -version 
+
+type : mongod
+
+
+"error":"NonExistentPath: Data directory C:\\data\\db\\ not found
+
+
+show databases
+-----------------
+show dbs
+admin   48.00 KiB
+config  72.00 KiB
+local   72.00 KiB
+
+create database 
+----------------
+use databasename  
+Note : It is used to use the database and if it is not created then create it.
+
+
+use university
+switched to db university
+
+
+create collection 
+------------------
+db.createCollection("collection_name")
+
+
+db.createCollection("students")
+{ ok: 1 }
+
+
+
+insert document
+---------------
+
+insert single document 
+-----------------------
+db.students.insertOne(
+... {
+... name:"priyanka",
+... age:25,
+... mark:75,
+... dept:"CSE"
+... }
+... )
+{
+  acknowledged: true,
+  insertedId: ObjectId('660455d83209c6a9bc9f990a')
+}
+
+
+
+select all documents 
+--------------------
+db.students.find()
+
+ db.students.find()
+[
+  {
+    _id: ObjectId('660455d83209c6a9bc9f990a'),
+    name: 'priyanka',
+    age: 25,
+    mark: 75,
+    dept: 'CSE'
+  }
+
+
+insert multiple documet
+-------------------------
+
+
+db.students.insertMany([{name:"rahul",age:25,dept:"ECE"}},{name:"rahul",age:25,dept:"ECE"},{name:"rahul",age:25,dept:"ECE"},{name:"rahul"}])
+
+
+db.students.find()
+
+
+
+select specific document
+-------------------------
+SELECT * FROM STUDENT WHERE NAME="SURENDRA"
+
+select the document of surendra
+---------------------------------
+db.students.find({name:"surendra"})
+
+select the document of surendra whose sid is 102423
+----------------------------------------------------
+db.students.find({sid:102423})
+
+select all the employee documets whose sal is greater than 75000
+-----------------------------------------------------------------
+db.students.find({sal:{ $gt : 75000 }})
+
+select all the employee documets whose sal is greater than 15000
+-----------------------------------------------------------------
+db.students.find({sal:{ $lt : 15000 }})
+
+
+
+drop collection 
+---------------
+db.collectionname.drop()
+
+db.students.drop()
+
+drop database
+-------------
+db.dropDatabase()
+
+
+
+
+
+
+
+
+Date : 30/03/2024
+-----------------
+Start mongodb : open cmd ---> mongod
+MongoDB Shell : mongosh
+
+database---> database
+table ----> collection
+record ----> document 
+
+How to insert document 
+----------------------
+insertOne() : used to insert single document
+insertMany() : used to insert multiple document
+insert() : used to insert either single or multiple document ---> outdated
+
+db.employee.insertOne({.........})
+db.employee.insertOne({.........},{........},{.........},{..........})
+
+-------------------------
+
+
+
+Insert Studenet document 
+--------------------------
+db.createCollection("Student")
+
+
+let std={
+	name : "surendra",
+        mark : 75,
+        email : "surendra@gmail.com"
+}
+
+db.Student.insertOne(std)
+
+
+db.createCollection("Student1")
+
+db.Student.insertOne(std)
+
+---------------------------------
+
+
+Insert Multiple Document 
+------------------------
+
+let StudentData = [
+
+	{
+		
+	},
+
+	{
+		
+	},
+
+	{
+
+	}
+
+]
+
+db.Student.insertMany([StudentData])
+
+
+----------------------
+
+let StudentData = { }
+
+StudentData.name="Priyanka"
+StudentData.age=24
+StudentData.mark=75
+StudentData.email="priyanka@gmail.com"
+
+same as 
+
+let StudentData = {
+	name : "priyanka",
+        age : 24,
+        mark : 75,
+	email : "priyanka@gmail.com"	
+}
+
+
+db.student.insertOne(StudentData)
+
+------------------------------------------------------------------------------
+
+
+
+
+
+-------------
+BOOK Example 
+-------------
+db.createCollection(Book)
+
+db.book.insertMany([
+
+{
+ "title" : "How to become a good boy",
+ "author" : "Prangya",
+ "price" : 255,
+ "publicationDetails": {
+	"year" : 2023,
+        "house" : "s. Chand",
+        "address" : {
+		"city" : "Chenni",
+                 "Landmark" : "Near sai temple",
+		 "Plot" : "A/101",
+                 "Pin :  751002
+		}
+	}
+},
+
+{
+ "title" : "How to become a good girl",
+ "author" : "Rahul",
+ "price" : 263,
+ "publicationDetails": {
+	"year" : 2022,
+        "house" : "s. Chand",
+        "address" : {
+		"city" : "Chenni",
+                 "Landmark" : "Near sai temple",
+		 "Plot" : "A/101",
+                 "Pin :  751002
+		}
+	}
+},
+
+{
+ "title" : "How to become a good sports man",
+ "author" : "Zini",
+ "price" : 415,
+ "publicationDetails": {
+	"year" : 2021,
+        "house" : "s. Chand",
+        "address" : {
+		"city" : "Chenni",
+                 "Landmark" : "Near sai temple",
+		 "Plot" : "A/101",
+                 "Pin :  751002
+		}
+	}
+},
+
+
+]);
+
+
+
+Retrive document :
+------------------
+find() ---> to select multiple documenmt
+findOne() --> to select one document
+
+
+-> WMQ to get all documents
+
+db.book.find()
+
+-> WMQ to get all the book documnets whose pub year geater than 2022
+
+db.book.find({"publicationDetails.year":{ $gt: 2022 }});
+ 
+-> WMQ to get deatils about the book written by rahul 
+
+db.book.find({"author": "rahul"});
+
+
+--> WMQ to get all author names 
+
+db.book.find("author")
+
+--> WMQ to get plot number of all the document
+
+db.book.find("publicationDetails.address.plot")
+
+--> WMQ to display all book those who habe published in between 2018 to 2022.
+
+db.book.find({"publicationDetails.year" : { $gt:2018, $lt:2022}})
+
+--> WMQ to display all book those who habe published in between 2018(included) to 2022(include).
+
+db.book.find({"publicationDetails.year" : { $gte:2018, $lte:2022}})
+
+
+--> WMQ to count number of book.
+
+db.book.find().count()
+
+--> WMQ to display all the book based on publishcation year. (accessing order)
+
+db.books.find().sort({ "publication_year": 1 })
+
+1 --> means accessing 
+-1 ---> decessing
+
+--> WMQ to display all the author names started with 's'
+
+db.book.find({"author" : /^s/ })
+
+
+
+db.book.find().skip(5)
+
+-----------------------------
+
+
+
+
+
+
+
+
+
+04/04/2024
+-------------
+
+In js for key quatation is optional but in json it is mandatory .
+
+
+
+
+
