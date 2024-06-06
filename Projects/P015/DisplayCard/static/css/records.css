@@ -1,0 +1,17 @@
+#heading {
+  color: yellow;
+}
+.records_td a {
+  text-decoration: none;
+}
+.records_td a:hover {
+  cursor: pointer;
+  color: green;
+}
+
+#table-background {
+  background: url("../images/tableimage.jpg") no-repeat center center fixed;
+  background-size: cover;
+  width: 100%; 
+}
+
