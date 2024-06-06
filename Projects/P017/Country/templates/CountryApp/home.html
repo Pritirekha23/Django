@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DisplayCard project</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container m-4 rounded p-4" id="table-background">
+        <h1 class="text-center" id="heading">Country Records</h1>
+  
+        <table class="table border border-warning "  >
+          <thead>
+            <tr>
+              <th scope="col"> ID</th>
+              <th scope="col"> country_name</th>
+              <th scope="col"> capital_name</th>
+              <th scope="col"> population  </th>
+              <th scope="col"> Readmore </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in all_records %}
+            <tr class="records_td">
+              <td>{{i.id}}</td>
+              <td>{{i.country_name}}</td>
+              <td>{{i.capital_name}}</td>
+              <td>{{i.population}}</td>
+              <td><a href="{% url 'specfic_country_record' i.id %}">{{i.Readmore}}</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
