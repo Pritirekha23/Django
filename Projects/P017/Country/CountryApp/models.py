@@ -6,3 +6,4 @@ class Country(models.Model):
     capital_name=models.CharField(max_length=30)
     population  =models.IntegerField()
     Readmore   =models.CharField(max_length=30)
+    description = models.TextField() 

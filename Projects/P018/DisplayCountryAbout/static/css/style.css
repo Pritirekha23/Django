@@ -1,0 +1,29 @@
+/* home.html css start*/
+.flexcc{
+    display: flex;
+    gap:50%;
+}
+.text-infoo{
+    color:cyan;
+}
+.bodyhome{
+    background-color:lightgreen;
+}
+/* home.html css end */
+
+/* description.html css start*/
+.records_td a {
+    text-decoration: none;
+  }
+.records_td a:hover {
+    cursor: pointer;
+    color: black;
+    background-color:yellow;
+}
+
+#btn a:hover{
+    cursor: pointer;
+    color: black;
+    background-color:cyan;
+}
+/* description.html css end*/
