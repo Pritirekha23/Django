@@ -19,9 +19,12 @@
           <div class="card bg-black text-white">
             <div class="card-body">
               <p>
-                The {{  operation_name }} of {{ num1 }} and {{ num2 }} is <span style={'color:yellow'}>{{ result }}</span> .
+                The {{ operation_name }} of {{ num1 }} and {{ num2 }} is
+                <span style="color: yellow">{{ result }}</span> .
               </p>
-              <a   class="btn btn-danger" href="{% url 'home' %}"> Back to Calculator </a>
+              <a class="btn btn-danger" href="{% url 'home' %}">
+                Back to Calculator
+              </a>
             </div>
           </div>
         </div>
@@ -34,3 +37,4 @@
     ></script>
   </body>
 </html>
+

@@ -4,6 +4,8 @@ class CalculatorForm(forms.Form):
     num1=forms.IntegerField(label='Number 1', widget=forms.TextInput(attrs={'placeholder': 'Enter 1st number'}))
     num2=forms.IntegerField(label='Number 2',widget=forms.TextInput(attrs={'placeholder': 'Enter 2nd number'}))
     symbol = forms.CharField(label='Operation', max_length=1, widget=forms.TextInput(attrs={'placeholder': 'Enter math symbol (+, -, *, /)'}))
+    
+    
 
 
 
