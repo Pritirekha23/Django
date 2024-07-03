@@ -1,0 +1,62 @@
+{% extends "CodeDaisApp/base.html" %} 
+{% load static %} 
+{% block title %}
+Trainers page 
+{% endblock %} 
+{% block content %}
+<div class="container my-4">
+  <h1 class="text-center"><u>All the trainers</u></h1>
+
+  <div class="row d-flex flex-wrap gap-3">
+    {% for trainer in all_trainers %}
+    <div class="card " style="width: 18rem; background-color: #f0f0f0;">
+      <div class="text-center trainerprofile">
+        <img
+          src="{{ trainer.imgt.url }}"
+          class="card-img-top m-2"
+          alt="trainerimages"
+        />
+      </div>
+      <div class="card-body text-center">
+        <h5 class="card-title">{{trainer.tname}}</h5>
+        <p class="card-text"><b class="trainername">{{trainer.bio}}</b></p>
+        <div class="text-center">
+          <i class="bi bi-twitter" style="color: blue"></i>
+          <i class="bi bi-linkedin" style="color: blue"></i>
+          <i class="bi bi-facebook" style="color: blue"></i>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+{% comment %} testimonials  start {% endcomment %}
+
+  <div class="testimonials">
+    <h1 class="text-center "><u>Student Testimonial</u></h1>
+    <div class="row d-flex flex-wrap gap-3">
+      {% for testimonial in all_testimonials %}
+      <div class="card " style="width: 18rem; background-color: lightblue;">
+        <div class="text-center trainerprofile m-2">
+          <img
+            src="{{ testimonial.imgts.url }}"
+            class="card-img-top"
+            alt="testimonialsimages"
+          />
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{testimonial.tsname}}</h5>
+          <p class="card-text"><b class="testimonials">{{testimonial.bio}}</b></p>
+          <p class="card-text"><i class="testimonialse">{{testimonial.description}}</i></p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} testimonials  end  {% endcomment %}
+
+
+</div>
+{% endblock %}

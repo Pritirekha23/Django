@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+  {% comment %} data-bs-theme="dark" {% endcomment %}
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+{% comment %} favicons {% endcomment %}
+<link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon_io/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon_io/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon_io/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'images/favicon_io/site.webmanifest' %}">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'images/logo.jpg' %}" style="border-radius: 50%;" width="25%" alt="logo">
+            <span style="color:white;" class="codedaisl">Code<span class="dais">Dais</span></span>
+          </a>
+        
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex justify-content-center w-100">
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item mx-2">
+                  <a class="nav-link " aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="{% url 'courses' %}">Courses</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="{% url 'trainers' %}">Trainers</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="{% url 'contactus' %}">Contact Us</a>
+                </li>
+                <li class="nav-item dropdown mx-2">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Pages
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'aboutus' %}">About Us</a></li>
+                    <li><a class="dropdown-item" href="#">Contact US</a></li>
+                    <li><a class="dropdown-item" href="#">FAQ</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="button">
+            <button class="btn btn-warning" type="button">Login</button>  
+            </div>
+           
+          </div>
+        </div>
+    </nav>
+    </header>
+      
+
+    <div class="contianer">
+    {% block content %}
+    
+    {% endblock %}
+    </div>
+
+    <footer class="fottersection">
+      <div class="container foot">
+          <div class="row">
+              <div class="col-12 col-md-6 col-lg-3 mb-4 footer_l">
+                  <div class="footer-about">
+                      <!-- <img class="img-fluid footer-brand" src="./assets/images/logo.png" alt="img"> -->
+                      <h2 class="footer-brand-text codedaisl" >Code<span class="dais">Dais</span></h2>
+                      <p class="footer-about-text">Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore
+                          et dolore magna aliqua.</p>
+                      <ul class="footersocial_icons">
+                          <li><a href="https://www.youtube.com/@codedais" target="_blank"><i class="bi bi-youtube"></i></i></a></li>
+                          <li><a href=""><i class="bi bi-twitter" target="_blank"></i></a></li>
+                          <li><a href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAAB6KIwkBIZEWiYOSpOJhl0AYmI6g4jFGjzk&keywords=surendra%20kumar%20panda&origin=RICH_QUERY_TYPEAHEAD_HISTORY&position=0&searchId=bb43f274-77f3-4bdc-9516-b20c16eb07a5&sid=%3AKO&spellCorrectionEnabled=true"><i
+                                      class="bi bi-linkedin" target="_blank"></i></a></li>
+                          <li><a href="instagram.com/surendra_panda" target="_blank"><i class="bi bi-instagram"></i></a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                  <div class="footer-links">
+                      <h3 class="footer-heading">Courses</h3>
+                      <div class="footer-heading-line"></div>
+                      <ul class="footer_course_links">
+                          <li><a href="#">Artificial Intelligence and Machine Learning</a></li>
+                          <li><a href="#">Fullstack Developement</a></li>
+                          <li><a href="#">Web Development</a></li>
+                          <li><a href="#">Cloud Computing</a></li>
+                          <li><a href="#">Project Management</a></li>
+                          <li><a href="#">Software Development</a></li>
+
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-2 mb-4">
+                  <div class="footer-links">
+                      <h3 class="footer-heading">Quick Links</h3>
+                      <div class="footer-heading-line"></div>
+                      <ul class="footer_quicklinks">
+                          <li><a href="#">About Us</a></li>
+                          <li><a href="{% url 'courses' %}">Courses</a> </li>
+                          <li><a href="#">Event</a></li>
+                          <li><a href="{% url 'blogs'  %}">Blog</a></li>
+                          <li><a href="#">Our team</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-2 mb-4">
+                  <div class="footer-links">
+                      <h3 class="footer-heading">Support</h3>
+                      <div class="footer-heading-line"></div>
+                      <ul class="footer_support">
+                          <li><a href="#">FAQ</a> </li>
+                          <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                          <li><a href="#">Terms &amp; Conditions</a> </li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="col-12 col-md-12 col-lg-2 mb-4">
+                  <div class="footer-contact">
+                      <h3 class="footer-heading">Contact Info</h3>
+                      <div class="footer-heading-line">
+                          <p>1234, BBSR</p>
+                          <p>+91 74526273683</p>
+                          <p>webtechnologies@gmail.com</p>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+          <div class="rows">
+              <div class="footer-copyright-wrapper">
+                  <p> Copyright © <span class="codedaisl">Code<span class="dais">Dais</span></span>. Made with 💛 <span class="designer"> by Pritirekha</span></p>
+              </div>
+  </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

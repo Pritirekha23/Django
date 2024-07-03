@@ -1,0 +1,22 @@
+body{
+    background-color:lightblue;
+} 
+
+.card-img-top {
+    width: 25%;
+    height: 75px; 
+    object-fit: cover;
+    border-radius: 50%;
+   
+  }
+
+.ta a:hover {
+    cursor: pointer;
+    background-color:cyan;
+    color:black;
+}
+.container{
+    margin:10%;
+    margin-left:20%;
+    
+}

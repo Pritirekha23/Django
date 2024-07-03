@@ -1,0 +1,281 @@
+body {
+    font-family: "Reddit Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+.navbar{
+    background-color:#033043;
+    
+}
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #fda521;
+}
+
+
+.btn.btn-danger {
+  border:none;
+  background-color: #033043;
+  color: white;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn.btn-danger:hover {
+  background-color: #fda521;
+  color: white;
+}
+
+
+
+
+/* mainhome SECTION START */
+.mainhome {
+    background-color: #e9e3d5;
+  }
+  .sectionhome {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .homecontent,
+  .homeimg {
+    flex: 1;
+  }
+  .homecontent {
+    margin: 7%;
+  }
+  .codedais {
+    color: #fda521;
+    font-family:cursive;
+    font-weight:800;
+  }
+  .homeimg {
+    margin-top: 2%;
+    margin-left: 6%;
+  }
+  .homesubheading {
+    color: crimson;
+  }
+  .btn {
+    background-color: #fda521;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .btn:hover {
+    background-color: #033043;
+    color: white;
+  }
+  
+  /* mainhome SECTION END */
+  /* aboutus section satrt */
+/* .aboutus{
+    background:red;
+} */
+.aboutusmain {
+    margin: 3%;
+  }
+  .aboutusmain {
+    display: flex;
+    align-items: stretch;
+  }
+  .imageaboutus,
+  .contentaboutus {
+    flex: 1;
+  }
+  .imageaboutus {
+    margin-left: 4%;
+  }
+  .contentaboutus {
+    margin-top: 2%;
+  }
+  h5 {
+    font-weight: bold;
+    color: crimson;
+  }
+  /* aboutus section end */
+  
+  
+  /* service section start */
+  
+  /* .servicessection{
+      background:#e9e3d5;
+  } */
+  .ourservisesh{
+      margin-left:10%;
+      margin-right:20%;
+  }
+  .servicessection_div {
+    display: flex;
+    gap: 5%;
+    margin: 5%;
+  }
+  .services_icon img {
+    border-radius: 50%;
+    background-color: lightpink;
+    padding: 20px;
+  }
+  .cardofservice {
+    display: flex;
+    padding: 8%;
+    gap: 8%;
+  }
+  .serv-title {
+    color: crimson;
+  }
+  .serv:hover {
+    background-color: crimson;
+    transition: background-color 0.5s ease-in-out;
+    color: white;
+  }
+ 
+  .card{
+      width: 30rem;
+      margin:15px;  
+  }
+  
+  /* service section start */
+
+
+
+
+
+
+
+/* trainer start */
+
+/* .trainerprofile img{
+  width: 25%;
+  height: 75px; 
+  object-fit: cover;
+  border-radius: 50%;
+ 
+} */
+
+
+.trainerprofile img{
+  width: 35%;
+  height: 100px; 
+  object-fit: cover; 
+  border-radius: 50%;
+}
+.trainername{
+  font-family:'monospace,sanserif';
+  font-size:17px;
+}
+
+/* trainer end */
+
+/* conatct us start*/
+.cstm .btn{
+  margin-top:10px;
+}
+.contactus_msgs{
+  font-family:'cursive sansserif ';
+  color:crimson;
+}
+/* conatct us end*/
+
+/* testimonials start */
+.testimonials_students img{
+  /* width: 35%;
+  height: 100px;  */
+  /* object-fit: cover; 
+  border-radius: 50%; */
+}
+/* testimonials end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* fotter start */
+.fottersection{
+    background-color:black;
+    color:white;
+}
+.footersocial_icons{
+    display:flex;
+    gap:2%;
+    /* height:20px;
+    width:30px; */
+}
+.footersocial_icons li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.footersocial_icons li a {
+    color: yellow;
+    
+}
+.foot{
+    padding:30px;
+}
+.footer-heading-line{
+    color:#A7A5A1;
+}
+.footer_support  li{
+    list-style-type: none;
+
+}
+.footer_support a {
+    text-decoration: none;
+    color:#A7A5A1;
+    
+}
+.footer_course_links li{
+    list-style-type: none;
+}
+.footer_course_links a{
+    text-decoration: none;
+    color:#A7A5A1;
+    
+}
+.footer_quicklinks li{
+    list-style-type: none;
+}
+.footer_quicklinks a{
+    text-decoration: none;
+    color:#A7A5A1;
+}
+.footer-about-text{
+    color:#A7A5A1;
+}
+a:hover{
+ color:#fda521;
+}
+.footer-copyright-wrapper p{
+    color:#A7A5A1;
+    text-align:center;
+}
+.designer{
+    color:yellow;
+}
+
+.dais{
+    color:yellow;
+}
+.codedaisl{
+    font-family:cursive;
+}
+/* fotter end */
+

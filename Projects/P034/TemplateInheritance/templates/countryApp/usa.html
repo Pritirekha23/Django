@@ -1,0 +1,101 @@
+
+{% extends "CountryApp/base.html" %}
+{% block title %}
+USA
+{% endblock %}
+{% block dropdown_item %}
+ USA                  
+{% endblock  %}
+
+{% block dropdown_list_item %}
+<li><a class="dropdown-item" href="#">Our Culture</a></li>
+<li><a class="dropdown-item" href="#">Our Peoples</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="#">Visit Usa</a></li>      
+{% endblock  %}
+{% block content %} 
+    <div class="container" align="center">
+        <h1>About USA</h1>
+        
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat dicta delectus culpa iusto, nisi reprehenderit velit quidem odit totam minima sapiente possimus iste consequuntur? Alias natus laboriosam nam accusantium numquam inventore minima harum doloremque laborum, mollitia blanditiis odio cupiditate. Laboriosam ipsam dignissimos vero velit inventore nostrum impedit facere eum doloribus? Dicta expedita beatae veritatis architecto inventore nam, quia sit! Quod ad facilis omnis accusantium commodi cumque, sed vitae beatae eum exercitationem ab ex. Deleniti animi corporis dignissimos, mollitia molestias quae nobis, unde eius non optio, enim culpa aperiam. Saepe deserunt ut molestiae iste. Porro aperiam laborum dicta harum placeat quaerat.</p>
+    <div class="images_slider text-center">
+      <div class="container d-flex flex-wrap justify-content-center gap-3 ml-3">
+        {% for i in all_records %}
+        <div class="card" style="width: 18rem">
+          <div class="text-center">
+            <img
+              src="{{ i.us_pic.url }}"
+              class="card-img-top"
+              height="200px"
+              width="200px"
+              alt="profileimage"
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ i.us_name }}</h5>
+            <p class="card-text">{{ i.us_desc }}</p>
+            <div class="text-center ta">
+              <a href="#" class="btn btn-danger">Click Here</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+    
+
+{% endblock %}
+
+
+
+
+
+{% comment %} {% extends "CountryApp/base.html" %}
+
+{% block title %}
+USA
+{% endblock %}
+
+{% block dropdown_item %}
+ Usa                  
+{% endblock  %}
+
+{% block dropdown_list_item %}
+<li><a class="dropdown-item" href="#">Our Culture</a></li>
+<li><a class="dropdown-item" href="#">Our Peoples</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a class="dropdown-item" href="#">Visit USA/a></li>      
+{% endblock  %}
+
+{% block content %} 
+    <div class="container" align="center">
+    <h1>About USA</h1>      
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat dicta delectus culpa iusto, nisi reprehenderit velit quidem odit totam minima sapiente possimus iste consequuntur? Alias natus laboriosam nam accusantium numquam inventore minima harum doloremque laborum, mollitia blanditiis odio cupiditate. Laboriosam ipsam dignissimos vero velit inventore nostrum impedit facere eum doloribus? Dicta expedita beatae veritatis architecto inventore nam, quia sit! Quod ad facilis omnis accusantium commodi cumque, sed vitae beatae eum exercitationem ab ex. Deleniti animi corporis dignissimos, mollitia molestias quae nobis, unde eius non optio, enim culpa aperiam. Saepe deserunt ut molestiae iste. Porro aperiam laborum dicta harum placeat quaerat.</p>
+
+    <div class="images_slider text-center">
+        <div class="container d-flex flex-wrap justify-content-center gap-3 ml-3">
+          {% for i in all_records %}
+          <div class="card" style="width: 18rem">
+            <div class="text-center">
+              <img
+                src="{{ i.us_pic.url }}"
+                class="card-img-top"
+                height="200px"
+                width="200px"
+                alt="profileimage"
+              />
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ i.us_name }}</h5>
+              <p class="card-text">{{ i.us_desc }}</p>
+              <div class="text-center ta">
+                <a href="#" class="btn btn-danger">Click Here</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock %} {% endcomment %}

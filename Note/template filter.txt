@@ -1,0 +1,46 @@
+{{i.email| cut:"@"}}
+{{i.course | lower }}
+{{i.name |slice:"3:" }}
+{{records.name | capfirst}}
+{{records.name | title }}
+{{records.course | upper }}
+{{records.mark | add:"5"}}
+{{records.email | length }}
+capfirst
+lower
+upper
+date:”Y-m-d”
+date:”D d m Y”
+add:”5”
+cut:”@”
+slice:”2:”
+length
+wordcount
+
+
+addslashes: Adds slashes before certain characters (e.g., quotes).
+capfirst: Capitalizes the first character of a string.
+center: Centers the string within the specified width.
+cut: Removes all occurrences of a substring from a string.
+date: Formats a date according to a given format string.
+default: Uses a default value if the variable is undefined or empty.
+dictsort: Sorts a dictionary by its keys or values.
+divisibleby: Checks if a number is divisible by another number.
+escape: Escapes characters in HTML.
+filesizeformat: Formats a file size (in bytes) into a human-readable format.
+first: Returns the first item of a list.
+join: Joins elements of a list with a specified separator.
+last: Returns the last item of a list.
+length: Returns the length of a list or string.
+linenumbers: Adds line numbers to each line of text.
+lower: Converts a string to lowercase.
+make_list: Converts a string to a list.
+random: Returns a random item from a list.
+slice: Extracts a specific subset of elements from a list or string.
+slugify: Converts a string into a slug (lowercase, hyphen-separated words).
+time: Formats a time according to a given format string.
+timesince: Returns the time since a given date or time.
+title: Converts the first character of each word to uppercase.
+unordered_list: Converts a list into an HTML unordered list.
+upper: Converts a string to uppercase.
+wordcount: Counts the number of words in a string.

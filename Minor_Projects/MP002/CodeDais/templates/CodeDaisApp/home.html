@@ -1,0 +1,101 @@
+{% extends "CodeDaisApp/base.html" %}
+{% load static %}
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<section class="mainhome" id="aboutus">
+    <div class="sectionhome">
+        <div class="homecontent">
+            <h4>WELCOME TO <span class="codedais">CODEDAIS</span></h4>
+            <h1 class="homesubheading">ONLINE PLATFORM FOR DEVELOPERS</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea ut voluptas error esse rem voluptates eos
+                suscipit dolores reprehenderit quibusdam.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, consequuntur.</p>
+            <button type="button" class="btn btn-danger ">Ready To get Start <i class="bi bi-arrow-right"></i></button>
+        </div>
+        <div class="homeimg">
+            <img src="{% static 'images/homebanner-img.png' %}" alt="bannerimage" height="450px" width="400px">
+        </div>
+    </div>
+</section>
+
+
+<!-- home end -->
+
+
+<!-- aboutus section start -->
+<section class="aboutus" href="#aboutus">
+    <div class="aboutusmain">
+        <div class="imageaboutus">
+            <img src="{% static 'images/about-us.png' %}" alt="aboutusiamge">
+        </div>
+        <div class="contentaboutus">
+            <h5><u>ABO</u>UT US</h5>
+            <h2>Welcome To The Online Learning Center</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur repudiandae sint ex fugit
+                voluptatibus ipsa dolores asperiores quae doloremque natus deleniti optio quo soluta, provident
+                porro rerum, a autem iure.</p>
+            <p> <i class="bi bi-arrow-right"></i>Popular topics to learn now</p>
+            <p> <i class="bi bi-arrow-right"></i>Find the right instructor for you</p>
+            <p> <i class="bi bi-arrow-right"></i>Find the right instructor for you</p>
+            <p> <i class="bi bi-arrow-right"></i>The foundation for lifetime of success</p>
+            <p> <i class="bi bi-arrow-right"></i>The foundation for lifetime of success</p>
+            <div> <button type="button" class="btn btn-danger">Ready To get Start <i class="bi bi-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- aboutus section end -->
+
+
+<!-- services section start -->
+<section class="servicessection">
+    <h5 class="ourservisesh"><u>OUR</u>SERVICES</h5>
+    <div class="servicessection_div">       
+        <div class="card serv">
+            <div class="card-body cardofservice">
+                <div class="services_icon">
+                    <img src="{% static 'images/education3.png' %}" alt="">
+                   
+                </div>
+                <div class="services_content">
+                    <h5 class="card-title">Life Time Access</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card serv">
+            <div class="card-body cardofservice">
+                <div class="services_icon">
+                    <img src="{% static 'images/education4.png' %}" alt="">
+                </div>
+                <div class="services_content">
+                    <h5 class="card-title">Dry-run Approach</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the card's content.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card serv">
+            <div class="card-body cardofservice">
+                <div class="services_icon">
+                    <img src="{% static 'images/education5.png' %}" alt="">
+                </div>
+                <div class="services_content">
+                    <h5 class="card-title">Dedicated Support</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae,
+                        tempore!.</p>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</section>
+<!-- services section end -->
+{% endblock %}
