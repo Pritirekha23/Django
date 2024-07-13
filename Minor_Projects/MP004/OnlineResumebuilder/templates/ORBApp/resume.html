@@ -1,0 +1,27 @@
+{% extends "ORBApp/base.html" %}
+
+{% block title %}
+Personal Information
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <h2 align="center">Resume</h2>
+       <div class="first" >
+        <div class="left"><p>{{ data.name }}</p>
+            <p>{{ data.email }}</p>
+            <p>{{ data.desg }}</p>
+            <p>{{ data.mob_number }}</p>
+            <p>{{ data.location }}</p>
+            <p>{{ data.linkedin_id }}</p>
+            <p>{{ data.github_id }}</p>
+            </div>
+       </div>
+       <div class="right">
+        <p>{{ data.profile_pic }}</p>
+       </div>
+        
+</div>
+{% endblock %}

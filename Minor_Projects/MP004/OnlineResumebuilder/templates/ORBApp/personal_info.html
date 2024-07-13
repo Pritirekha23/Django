@@ -1,0 +1,59 @@
+{% extends "ORBApp/base.html" %}
+
+{% block title %}
+Personal Information
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container" align="center">
+    <h2>Personal Information</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>{{ form.name.label }}</th>
+                <td>{{ form.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.desg.label }}</th>
+                <td>{{ form.desg }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.email.label }}</th>
+                <td>{{ form.email }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.mob_number.label }}</th>
+                <td>{{ form.mob_number }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.location.label }}</th>
+                <td>{{ form.location }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.linkedin_id.label }}</th>
+                <td>{{ form.linkedin_id }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.github_id.label }}</th>
+                <td>{{ form.github_id }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.profile_pic.label }}</th>
+                <td>{{ form.profile_pic }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{% url 'personal_info' %}" class="btn btn-primary">Back</a>
+                </td>
+                <td>
+                    <a href="{% url 'profile_summary' %}" class="btn btn-primary">Next</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}

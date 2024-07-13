@@ -1,0 +1,36 @@
+{% extends "ORBApp/base.html" %}
+
+{% block title %}
+Personal Information
+{% endblock %}
+
+{% block content %}
+
+<div class="container" align="center">
+    <h2>Education</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>{{ form.college_name.label }}</th>
+                <td>{{ form.college_name }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.course_name.label }}</th>
+                <td>{{ form.course_name }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.duration.label }}</th>
+                <td>{{ form.duration }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="{% url 'experience' %}" class="btn btn-primary">Back</a>
+                    <a href="{% url 'skills_languages' %}" class="btn btn-primary">Next</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}

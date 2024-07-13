@@ -1,0 +1,39 @@
+{% extends "ORBApp/base.html" %}
+
+{% block title %}
+Personal Information
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container" align="center">
+    <h2>Experience</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>{{ form.designation.label }}</th>
+                <td>{{ form.designation }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.company_name.label }}</th>
+                <td>{{ form.company_name }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.years_worked.label }}</th>
+                <td>{{ form.years_worked }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{% url 'profile_summary' %}" class="btn btn-primary">Back</a>
+                </td>
+                <td>
+                    <a href="{% url 'education' %}" class="btn btn-primary">Next</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}

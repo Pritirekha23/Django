@@ -1,0 +1,33 @@
+{% extends "ORBApp/base.html" %}
+
+{% block title %}
+Personal Information
+{% endblock %}
+
+{% block content %}
+<div class="container" align="center">
+    <h2>Skills & Languages</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>{{ form.skills.label }}</th>
+                <td>{{ form.skills }}</td>
+            </tr>
+            <tr>
+                <th>{{ form.languages.label }}</th>
+                <td>{{ form.languages }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{% url 'education' %}" class="btn btn-primary ">Back</a>
+                </td>
+                <td>
+                    <a href="{% url 'skills_languages' %}" class="btn btn-primary">Submit</a>
+                </td>
+                
+                </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}
