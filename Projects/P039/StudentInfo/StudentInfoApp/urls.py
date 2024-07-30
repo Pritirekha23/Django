@@ -8,3 +8,11 @@ urlpatterns = [
     path('data/',views.data_view,name="data"),
    
 ]
+#  <h3>{{all_records.name}}</h3>
+#         <p>Address: {{all_records.address}}</p>
+#         <p>Email: {{all_records.email}}</p>
+#         <p>College: {{all_records.college}}</p>
+#         <p>Degree: {{all_records.degree}}</p>
+#         <p>Mark: {{all_records.mark}}</p>
+#         <p>Favorite Sports: {{all_records.fav_sports}}</p>
+#         <p>Favorite Actor: {{all_records.actor}}</p>
