@@ -1,0 +1,11 @@
+{% extends "MyAuthApp/base.html" %}
+{% block title %}Dashboard page{% endblock %}
+{% block  body %}
+
+<div class="contianer">
+    <h1>dashboard</h1>
+    <h1>Welcome, {{ student.name }}!</h1>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Password:</strong> {{ student.password }}</p>
+</div>
+{% endblock  %}

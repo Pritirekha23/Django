@@ -1,0 +1,6 @@
+{% extends "MyAuthApp/base.html" %}
+{% block title %}success page{% endblock %}
+{% block body %}
+<h1 class="text-center">Congratulations! You are now registered with us</h1> <br>
+<h2>Click here to <a href="{% url 'signin' %}" class="btn btn-success">Signin</a></h2>
+{% endblock %}
