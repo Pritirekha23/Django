@@ -7,21 +7,53 @@ Personal Information
 {% block content %}
 
 
-<div class="container">
+<div class="container card mt-3">
     <h2 align="center">Resume</h2>
        <div class="first" >
-        <div class="left"><p>{{ data.name }}</p>
+        <div class="left">
+            <p>{{ data.name }}</p>
             <p>{{ data.email }}</p>
             <p>{{ data.desg }}</p>
             <p>{{ data.mob_number }}</p>
             <p>{{ data.location }}</p>
             <p>{{ data.linkedin_id }}</p>
             <p>{{ data.github_id }}</p>
-            </div>
+        </div>
+        <div class="right">
+            <img src="{{ data.profile_pic.url }}" height="150px" width="150px" /> 
+        </div>
        </div>
-       <div class="right">
-        <p>{{ data.profile_pic }}</p>
+       <hr/>
+
+       <div class="profilesummary">
+        <h3>Profile Summary</h3>
+        <p>{{ data.summary }}</p>
        </div>
-        
+       <div class="experience">
+        <h3>Experiences</h3>
+        <p>{{ data.designation }}</p>
+        <p>{{ data.company_name }}</p>
+        <p>{{ data.years_worked }}</p>
+       </div>
+       <div class="education">
+        <h3>Education</h3>
+        <p>{{ data.college_name }}</p>
+        <p>{{ data.course_name }}</p>
+        <p>{{ data.duration }}</p>
+       </div>
+       <div class="Skills">
+        <h3>Skills</h3>
+        <p>{{ data.skills }}</p>
+       </div>
+       <div class="languages">
+        <h3>Languages</h3>
+        <p>{{ data.languages }}</p>
+       </div>
+      
 </div>
+
+<div class="back mt-3">
+    <a href="{% url 'info' %}" class="btn btn-success">Back</a>
+</div>
+
 {% endblock %}

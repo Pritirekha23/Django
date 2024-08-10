@@ -6,11 +6,22 @@ def home_view(request):
     complete_task=TaskDetails.objects.filter(task_status=True)
     len_incomplete_task=len(incomplete_task)
     len_complete_task=len(complete_task)
+    total_no_task=TaskDetails.objects.all().count()
+    if total_no_task > 0:
+        percent_complete_task = (len_complete_task / total_no_task) * 100
+    else:
+        percent_complete_task = 0
+
     context={
         'incomplete_task':incomplete_task,
         'complete_task':complete_task,
         'len_incomplete_task':len_incomplete_task,
-        'len_complete_task':len_complete_task
+        'len_complete_task':len_complete_task,
+        'total_no_task':total_no_task,
+        'total_no_complete_task':len(complete_task),
+        'total_no_incomplete_task':len(incomplete_task),
+        'percent_complete_task':int(percent_complete_task)
+
     }
     return render(request,'Tmsapp/home.html',context)
 
@@ -27,10 +38,20 @@ def done_task_view(request,id):
     record.save()
     return redirect('home')
 
+
+def done_all_view(request):
+    TaskDetails.objects.all().update(task_status=True)
+    return redirect('home')
+
+
 def undo_task_view(request,id):
     record=get_object_or_404(TaskDetails,id=id)
     record.task_status=False
     record.save()
+    return redirect('home')
+
+def undo_all_view(request):
+    TaskDetails.objects.all().update(task_status=False)
     return redirect('home')
 
 def delete_task_view(request,id):
@@ -52,3 +73,20 @@ def remove_all_view(request):
     all_records=TaskDetails.objects.all()
     all_records.delete()
     return redirect('home')
+
+def  update_task_view(request,id):
+    if request.method=='POST':
+        update_task=request.POST['update_task']
+        record=get_object_or_404(TaskDetails,id=id)
+        record.task_name=update_task
+        record.save()
+        return redirect('home')
+    else:
+        record=get_object_or_404(TaskDetails,id=id)
+        task_name=record.task_name
+        id=record.id
+        context={
+            'task_name':task_name,
+            'id':id,
+        }
+        return render(request,'Tmsapp/update.html',context)

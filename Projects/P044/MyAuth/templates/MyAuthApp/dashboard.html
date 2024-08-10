@@ -1,11 +1,13 @@
-{% extends "MyAuthApp/base.html" %}
-{% block title %}Dashboard page{% endblock %}
-{% block  body %}
+{% extends "MyAuthApp/base.html" %} 
+{% block title %}Dashboard page{% endblock %} 
+{% block body %}
 
-<div class="contianer">
-    <h1>dashboard</h1>
+<div class="contianer   d-flex justify-content-center align-items-center m-5">
+  <div class="card" style="width: 40rem; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius: 10px; padding: 20px; background-color: #f9f9f9;">
+    <h1>Dashboard</h1>
     <h1>Welcome, {{ student.name }}!</h1>
     <p><strong>Email:</strong> {{ student.email }}</p>
     <p><strong>Password:</strong> {{ student.password }}</p>
+  </div>
 </div>
-{% endblock  %}
+{% endblock %}
