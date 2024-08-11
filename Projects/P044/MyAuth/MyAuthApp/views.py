@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from .forms import StudentForm,StudentsigninForm
 from .models import Student
 
@@ -24,27 +24,31 @@ def success_view(request):
     return render(request, 'MyAuthApp/success.html')
 
 
+
+
 def signin_view(request):
     if request.method == "POST":
         form = StudentsigninForm(request.POST)
         if form.is_valid():
-            input_email = form.cleaned_data['email']
-            input_password = form.cleaned_data['password']
-            student = Student.objects.filter(email=input_email, password=input_password).first()           
-            if student:
-                return redirect(f'/dashboard/?email={student.email}')
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            students = Student.objects.filter(email=email)
+            
+            if students.exists():
+                student = students.first()                 
+                if student.password == password:
+                    context = {'student': student}
+                    return render(request, 'MyAuthApp/dashboard.html', context)
+                else:
+                    return HttpResponse("wrong email or password")
             else:
-                form.add_error(None, 'Invalid email or password')
+                return HttpResponse("wrong email or password")
     else:
         form = StudentsigninForm()
 
     return render(request, 'MyAuthApp/signin.html', {'form': form})
 
 
-
-
-# def dashboard_view(request):
-#     return render(request, 'MyAuthApp/dashboard.html')
 
 def dashboard_view(request):
     student_email = request.GET.get('email')
